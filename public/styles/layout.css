@@ -1,0 +1,32 @@
+body {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+}
+
+.download-list {
+  background-color: #eee;
+}
+
+.download-list md-card {
+  background-color: white;
+}
+
+.list-element-titulo {
+  font-size: 1.4em;
+}
+
+.list-element-autor {
+  color: #ADADAD;
+}
+
+.download-form md-input-group {
+  font-size: 1.4em;
+}
+
+.download-form md-input-group input {
+  width: 100%;
+}
+
+.download-form {
+  padding: 20px;
+}

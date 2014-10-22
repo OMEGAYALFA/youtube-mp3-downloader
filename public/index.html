@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mensajesDownloader">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mensajes Downloader</title>
+
+  <!-- Styles -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="libs/normalize.css/normalize.css">
+  <link rel="stylesheet" href="libs/angular-material/angular-material.css">
+  <link rel="stylesheet" href="styles/layout.css">
+</head>
+
+<body ng-controller="appController">
+
+<div layout="vertical" layout-fill>
+  <md-toolbar class="md-theme-light md-whiteframe-z1">
+    <h2 class="md-toolbar-tools">
+        <span>Youtube MP3 Downloader</span>
+      </h2>
+  </md-toolbar>
+
+  <div layout="vertical" layout-sm="horizontal" layout-fill>
+
+    <div class="download-form md-whiteframe-z1" flex>
+      <form>
+      <md-text-float ng-model="currentDownload.url" label="Youtube URL"></md-text-float>
+      <md-text-float ng-model="currentDownload.autor" label="Autor"></md-text-float>
+      <md-text-float ng-model="currentDownload.titulo" label="Título"></md-text-float>
+
+      <md-button class="md-button-raised md-button-colored" ng-click="download()">Download</md-button>
+    </form>
+    </div>
+
+    <md-content class="download-list" flex ng-show="downloads.length">
+
+      <md-card ng-repeat="d in downloads">
+        <div><span class="list-element-titulo">{{ d.titulo }}</span> <span class="list-element-autor">{{ d.autor }}</span></div>
+        <div class="status">{{ d.status }}</div>
+        <md-progress-linear mode="{{ d.mode }}" ng-value="{{ d.percent }}" ></md-progress-linear>
+      </md-card>
+
+    </md-content>
+
+    <md-content class="download-list" flex ng-hide="downloads.length">
+      En este momento no se están realizando descarguas.
+    </md-content>
+
+  </div>
+</div>
+
+  <script type="text/javascript" src="libs/angular/angular.js"></script>
+  <script type="text/javascript" src="libs/hammerjs/hammer.js"></script>
+  <script type="text/javascript" src="libs/angular-animate/angular-animate.js"></script>
+  <script type="text/javascript" src="libs/angular-aria/angular-aria.js"></script>
+  <script type="text/javascript" src="libs/angular-material/angular-material.js"></script>
+  <script type="text/javascript" src="libs/socket.io-client/socket.io.js"></script>
+  <script type="text/javascript" src="libs/angular-socket-io/socket.js"></script>
+  <script type="text/javascript" src="scripts/app.js"></script>
+</body>
+
+</html>
