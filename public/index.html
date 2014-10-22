@@ -38,13 +38,13 @@
       <md-card ng-repeat="d in downloads">
         <div><span class="list-element-titulo">{{ d.titulo }}</span> <span class="list-element-autor">{{ d.autor }}</span></div>
         <div class="status">{{ d.status }}</div>
-        <md-progress-linear mode="{{ d.mode }}" ng-value="{{ d.percent }}" ></md-progress-linear>
+        <md-progress-linear mode="{{ d.mode }}" ng-value="d.percent" ></md-progress-linear>
       </md-card>
 
     </md-content>
 
-    <md-content class="download-list" flex ng-hide="downloads.length">
-      En este momento no se están realizando descarguas.
+    <md-content class="download-list no-downloads" flex ng-hide="downloads.length">
+      No se están realizando descargas en este momento.
     </md-content>
 
   </div>
